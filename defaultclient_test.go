@@ -163,7 +163,7 @@ func TestDefaultLegalClient_StartCachingCrucialLegal(t *testing.T) {
 	defaultLegalClient := c.(*DefaultLegalClient)
 	defaultLegalClient.httpClient = mockHTTPClient
 
-	err := defaultLegalClient.StartCachingCrucialLegal()
+	err := defaultLegalClient.StartLocalCachingCrucial()
 
 	assert.NoError(t, err, "start caching crucial legal success")
 }
@@ -201,7 +201,7 @@ func TestDefaultLegalClient_ValidatePolicyVersionsTrue(t *testing.T) {
 		ClientID: testClientID,
 	}
 
-	err := defaultLegalClient.StartCachingCrucialLegal()
+	err := defaultLegalClient.StartLocalCachingCrucial()
 	valid, err := defaultLegalClient.ValidatePolicyVersions(jwtClaimsTest)
 
 	assert.NoError(t, err, "error in validating policy versions")
@@ -237,7 +237,7 @@ func TestDefaultLegalClient_ValidatePolicyVersionsFalse(t *testing.T) {
 		ClientID: testClientID,
 	}
 
-	err := defaultLegalClient.StartCachingCrucialLegal()
+	err := defaultLegalClient.StartLocalCachingCrucial()
 	valid, err := defaultLegalClient.ValidatePolicyVersions(jwtClaimsTest)
 
 	assert.NoError(t, err, "error in validating policy versions")
@@ -273,7 +273,7 @@ func TestDefaultLegalClient_ValidatePolicyVersionsPartialSign(t *testing.T) {
 		ClientID: testClientID,
 	}
 
-	err := defaultLegalClient.StartCachingCrucialLegal()
+	err := defaultLegalClient.StartLocalCachingCrucial()
 	valid, err := defaultLegalClient.ValidatePolicyVersions(jwtClaimsTest)
 
 	assert.NoError(t, err, "error in validating policy versions")
@@ -309,7 +309,7 @@ func TestDefaultLegalClient_ValidatePolicyVersionsEmptyRequiredPolicyVersions(t 
 		ClientID: testClientID,
 	}
 
-	err := defaultLegalClient.StartCachingCrucialLegal()
+	err := defaultLegalClient.StartLocalCachingCrucial()
 	valid, err := defaultLegalClient.ValidatePolicyVersions(jwtClaimsTest)
 
 	assert.NoError(t, err, "error in validating policy versions")
@@ -345,7 +345,7 @@ func TestDefaultLegalClient_ValidatePolicyVersionsSpecificClientHaveCrucialAllCl
 		ClientID: testClientID,
 	}
 
-	err := defaultLegalClient.StartCachingCrucialLegal()
+	err := defaultLegalClient.StartLocalCachingCrucial()
 	valid, err := defaultLegalClient.ValidatePolicyVersions(jwtClaimsTest)
 
 	assert.NoError(t, err, "error in validating policy versions")
@@ -383,7 +383,7 @@ func TestDefaultLegalClient_ValidatePolicyVersionsSpecificClientHaveCrucialAllCl
 		ClientID: testClientID,
 	}
 
-	err := defaultLegalClient.StartCachingCrucialLegal()
+	err := defaultLegalClient.StartLocalCachingCrucial()
 	valid, err := defaultLegalClient.ValidatePolicyVersions(jwtClaimsTest)
 
 	assert.NoError(t, err, "error in validating policy versions")

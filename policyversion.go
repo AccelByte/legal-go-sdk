@@ -75,6 +75,11 @@ func (client *DefaultLegalClient) remoteValidatePolicyVersion(listPolicyVersion 
 		return true, nil
 	}
 
+	// cache the client id result from remote call
+	for clientID, affectedPolicyVersion := range getCrucialPolicyVersionResponse.AffectedClient {
+		client.policyVersionCache.Set(clientID, affectedPolicyVersion, cache.DefaultExpiration)
+	}
+
 	// Check for affected clientID
 	if !validate(listPolicyVersion, getCrucialPolicyVersionResponse.AffectedClient[clientID], country, namespace, client.legalConfig.PublisherNamespace) {
 		return false, nil

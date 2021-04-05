@@ -68,16 +68,16 @@ func NewDefaultLegalClient(config *LegalConfig) LegalClient {
 	return client
 }
 
-func (client *DefaultLegalClient) StartCachingCrucialLegal() error {
+func (client *DefaultLegalClient) StartLocalCachingCrucial() error {
 	err := client.getCrucialPolicyVersion()
 	if err != nil {
 		return logAndReturnErr(
-			errors.WithMessage(err, "StartCachingCrucialLegal: unable to get crucial legal"))
+			errors.WithMessage(err, "StartLocalCachingCrucial: unable to get crucial legal"))
 	}
 
 	go client.refreshCrucialPolicyVersion()
 
-	log("StartCachingCrucialLegal: caching crucial legal start")
+	log("StartLocalCachingCrucial: caching crucial legal start")
 
 	return nil
 }

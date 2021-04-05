@@ -14,7 +14,7 @@ func (client MockLegalClient) HealthCheck() bool {
 	return client.Healthy
 }
 
-func (client MockLegalClient) StartCachingCrucialLegal() error {
+func (client MockLegalClient) StartLocalCachingCrucial() error {
 	return nil
 }
 

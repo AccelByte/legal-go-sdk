@@ -7,7 +7,7 @@ package legal
 import "github.com/AccelByte/iam-go-sdk"
 
 type LegalClient interface {
-	StartCachingCrucialLegal() error
+	StartLocalCachingCrucial() error
 
 	ValidatePolicyVersions(claims *iam.JWTClaims) (bool, error)
 
